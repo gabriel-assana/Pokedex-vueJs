@@ -21,6 +21,7 @@ export default {
  .sessaoPoke{ 
     width: 100vw;
     height: 70vh;
+    padding: 1rem 0 0 1rem;
     background-color:rgb(190, 226, 255);
  }
 
