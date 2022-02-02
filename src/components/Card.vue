@@ -18,23 +18,24 @@ export default {
  name: "Card",
  data(){
    return{
-       url: "https://pokeapi.co/api/v2/pokemon?limit=151&offset=0",
+       url: "https://pokeapi.co/api/v2/pokemon?offset=0&limit=151%22",
        imagePoke: [],
        pokemons:[],
        types:[]
   }
  },
  methods:{
-    getPokemon() {
-        axios.get(this.url)
+
+  async getPokemon() {
+    await axios.get(this.url)
             .then(({data}) => this.pokemons = data.results)      
             .catch(error => console.log(error))
 
     },
-    getImgType(){
+    async getImgType(){
         for (let index = 1; index <= 151; index++) {
                         
-            axios.get(`https://pokeapi.co/api/v2/pokemon/${index}`)
+           await axios.get(`https://pokeapi.co/api/v2/pokemon/${index}`)
                 .then(resp =>{
                     this.imagePoke.push(resp.data.sprites.other.dream_world.front_default)
                     this.types.push(resp.data.types.map(typeInfo => typeInfo.type.name).join( " | "))
