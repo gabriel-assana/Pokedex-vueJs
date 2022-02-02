@@ -1,6 +1,6 @@
 <template>
   <Header/>
-  <Pokecontainer/>
+  <Pokecontainer class=""/>
   <Footer/>
 </template>
 
@@ -24,6 +24,10 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body{
+  background-color:rgb(190, 226, 255);
 }
 
 </style>

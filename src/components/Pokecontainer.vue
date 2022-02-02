@@ -18,13 +18,16 @@ export default {
 
 
 <style scoped>
- .sessaoPoke{ 
-    width: 100vw;
-    height: 70vh;
-    padding: 1rem 0 0 1rem;
-    background-color:rgb(190, 226, 255);
- }
 
+ .sessaoPoke{
+    background-color:rgb(190, 226, 255);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: space-between;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1200px;
+}
 
 
 </style>

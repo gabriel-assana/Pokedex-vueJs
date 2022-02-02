@@ -13,16 +13,19 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
  .header{
+   display: flex;
    background-color: #FF494C;
    width:100vw;
-   height: 15vh;
+   height: 10vh;
  }
 
 .blue-led {
-  left: 100px;
-  position: absolute;
-  top: 35px;
-  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 4rem;
+  margin-left: 15px
+
 }
 </style>
 

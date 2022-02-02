@@ -1,13 +1,13 @@
 <template>
-    <div>
-        <ul class="list-group">
-            <li class="list-group-item" v-for=" (pokemon, index) in pokemons" :key="index">
+   <div class="poke-container">
+        <ul class="pokedex">
+            <li class="pokemon" v-for=" (pokemon, index) in pokemons" :key="index">
             <img class="img-pokemon" :src="imagePoke[index]" :alt="pokemon.name">
-                {{index + 1}} - {{pokemon.name}} 
-                <p> {{ types[index] }} </p>
+                <h2 class="pokeName"> {{ pokemon.name }} </h2>
+                <h3 class="pokeType"> {{ types[index] }} </h3>
             </li>
         </ul>
-    </div>  
+    </div>    
 </template>
 
 <script>
@@ -31,47 +31,61 @@ export default {
             .catch(error => console.log(error))
 
     },
-    getImgPokemon(){
-        for (let index = 1; index <= 151; index++) {
+    getImgType(){
+        for (let index = 0; index <= 151; index++) {
                         
             axios.get(`https://pokeapi.co/api/v2/pokemon/${index}`)
                 .then(resp =>{
                     this.imagePoke.push(resp.data.sprites.other.dream_world.front_default)
-                })
-                .catch(error => console.log(error))
-        }
-    },
-    getTypesPokemon(){
-        for (let index = 1; index <= 151; index++){
-            axios.get(`https://pokeapi.co/api/v2/pokemon/${index}`)
-                .then(resp =>{
                     this.types.push(resp.data.types.map(typeInfo => typeInfo.type.name).join( " | "))
                    /*typeInfo, representa cada Obj do Array types, assim deixando ser acessado cada Obj do array  */ 
                 })
                 .catch(error => console.log(error))
-                console.log(this.types)
         }
-    }
+    },
  },
- create(){
+
+created(){
     this.getPokemon()
-    this.getImgPokemon()
-    this.getTypesPokemon()
- },
- mounted(){
-    this.getPokemon()
-    this.getImgPokemon()
-    this.getTypesPokemon()
+    this.getImgType()
  }
 }
 </script>
 
 <style scoped>
 
-.pokemon-card{
-    width: 20rem;
-    height: 30rem;
-    background-color: white;
+.poke-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: space-between;
+    justify-content: center;
+    margin: 0 auto;
 }
+
+.pokedex {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+
+.pokemon{
+    background-color: #eee;
+    border-radius: 20px;
+    box-shadow: 0 3px 15px rgb(100 100 100 / 50%);
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    list-style: none;
+}
+
+.img-pokemon{
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    text-align: center;
+}
+
 
 </style>

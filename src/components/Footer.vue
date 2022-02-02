@@ -13,7 +13,7 @@ export default {
  .footer{
    background-color: #FF494C;
    width:100vw;
-   height: 15vh;
+   height: 10vh;
  }
 </style>
 
