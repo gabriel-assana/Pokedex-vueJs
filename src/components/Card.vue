@@ -27,12 +27,12 @@ export default {
  methods:{
     getPokemon() {
         axios.get(this.url)
-            .then(({data}) => this.pokemons = data.results)
+            .then(({data}) => this.pokemons = data.results)      
             .catch(error => console.log(error))
 
     },
     getImgType(){
-        for (let index = 0; index <= 151; index++) {
+        for (let index = 1; index <= 151; index++) {
                         
             axios.get(`https://pokeapi.co/api/v2/pokemon/${index}`)
                 .then(resp =>{
@@ -85,6 +85,18 @@ created(){
     width: 120px;
     height: 120px;
     text-align: center;
+}
+
+.pokeName{
+    margin: 15px 0 7px;
+    letter-spacing: 1px;
+}
+
+.pokeType{
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-size: 0.8em;
+    padding: 5px 10px;
 }
 
 
