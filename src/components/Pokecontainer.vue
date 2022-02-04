@@ -1,5 +1,6 @@
 <template>
     <div class="sessaoPoke">
+        <Search/>
         <Card/>    
     </div>
 </template>
@@ -7,11 +8,13 @@
 <script>
 
 import Card from './Card.vue'
+import Search from './Search.vue'
 
 export default {
     name: 'Pokecontainer',
     components:{
-        Card
+        Card,
+        Search
     }
 }
 </script>
@@ -20,7 +23,7 @@ export default {
 <style scoped>
 
  .sessaoPoke{
-    background-color:rgb(190, 226, 255);
+    background-color:rgb(229, 241, 252);
     display: flex;
     flex-wrap: wrap;
     align-items: space-between;

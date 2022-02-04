@@ -16,39 +16,42 @@ import axios from 'axios';
 
 export default {
  name: "Card",
- data(){
-   return{
-       url: "https://pokeapi.co/api/v2/pokemon?offset=0&limit=151%22",
-       imagePoke: [],
-       pokemons:[],
-       types:[]
-  }
- },
- methods:{
-
-  async getPokemon() {
-    await axios.get(this.url)
-            .then(({data}) => this.pokemons = data.results)      
-            .catch(error => console.log(error))
-    },
-    async getImgType(){
-        for (let index = 1; index <= 151; index++) {
-                        
-           await axios.get(`https://pokeapi.co/api/v2/pokemon/${index}`)
-                .then(resp =>{
-                    this.imagePoke.push(resp.data.sprites.other.dream_world.front_default)
-                    this.types.push(resp.data.types.map(typeInfo => typeInfo.type.name).join( " | "))
-                   /*typeInfo, representa cada Obj do Array types, assim deixando ser acessado cada Obj do array  */ 
-                })
-                .catch(error => console.log(error))
+    data(){
+        return{
+            url: "https://pokeapi.co/api/v2/pokemon?offset=0&limit=151%22",
+            imagePoke: [],
+            pokemons:[],
+            types:[]
         }
     },
- },
+    props:{
+    search: String,
+    },
+    methods:{
 
-mounted(){
-    this.getPokemon()
-    this.getImgType()
- }
+    async getPokemon() {
+        await axios.get(this.url)
+                .then(({data}) => this.pokemons = data.results)      
+                .catch(error => console.log(error))
+        },
+        async getImgType(){
+            for (let index = 1; index <= 151; index++) {
+                            
+            await axios.get(`https://pokeapi.co/api/v2/pokemon/${index}`)
+                    .then(resp =>{
+                        this.imagePoke.push(resp.data.sprites.other.dream_world.front_default)
+                        this.types.push(resp.data.types.map(typeInfo => typeInfo.type.name).join( " | "))
+                    /*typeInfo, representa cada Obj do Array types, assim deixando ser acessado cada Obj do array  */ 
+                    })
+                    .catch(error => console.log(error))
+            }
+        },
+    },
+
+    mounted(){
+        this.getPokemon()
+        this.getImgType()
+    }
 }
 </script>
 
@@ -106,6 +109,5 @@ mounted(){
     font-size: 0.8em;
     padding: 5px 10px;
 }
-
 
 </style>

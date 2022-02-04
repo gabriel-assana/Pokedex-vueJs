@@ -1,6 +1,7 @@
 <template>
   <div class="header">
     <img src="../assets/img/biggestBlueLed.svg" class="blue-led"> 
+    
   </div>
 </template>
 
