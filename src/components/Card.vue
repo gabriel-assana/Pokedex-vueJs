@@ -30,7 +30,6 @@ export default {
     await axios.get(this.url)
             .then(({data}) => this.pokemons = data.results)      
             .catch(error => console.log(error))
-
     },
     async getImgType(){
         for (let index = 1; index <= 151; index++) {
@@ -46,7 +45,7 @@ export default {
     },
  },
 
-created(){
+mounted(){
     this.getPokemon()
     this.getImgType()
  }
@@ -81,16 +80,24 @@ created(){
 }
 
 .img-pokemon{
-    background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 50%;
     width: 120px;
     height: 120px;
     text-align: center;
+
 }
 
 .pokeName{
     margin: 15px 0 7px;
     letter-spacing: 1px;
+    font-family: "Flexo-Demi",arial,sans-serif;
+    color: #313131;
+    text-transform: none;
+    font-size: 145%;
+    margin-bottom: 5px;
+}
+
+.pokeName:first-letter{
+    text-transform: uppercase
 }
 
 .pokeType{
