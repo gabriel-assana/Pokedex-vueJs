@@ -24,9 +24,9 @@ export default {
             types:[]
         }
     },
-    props:{
-    search: String,
-    },
+    props:[
+        "search"
+    ],
     methods:{
 
     async getPokemon() {

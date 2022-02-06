@@ -1,6 +1,6 @@
 <template>
   <Header/>
-  <Pokecontainer class=""/>
+  <Pokecontainer/>
   <Footer/>
 </template>
 
@@ -20,6 +20,7 @@ export default {
 </script>
 
 <style>
+
 *{
   margin: 0;
   padding: 0;
