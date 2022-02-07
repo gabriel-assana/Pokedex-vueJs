@@ -1,5 +1,5 @@
 <template>
-   <div class="poke-container">
+   <div class="poke-container">  
         <ul class="pokedex">
             <li class="pokemon" v-for=" (pokemon, index) in pokemons" :key="index">
             <img class="img-pokemon" :src="imagePoke[index]" :alt="pokemon.name">
@@ -21,12 +21,9 @@ export default {
             url: "https://pokeapi.co/api/v2/pokemon?offset=0&limit=151%22",
             imagePoke: [],
             pokemons:[],
-            types:[]
+            types:[],
         }
     },
-    props:[
-        "search"
-    ],
     methods:{
 
     async getPokemon() {
@@ -47,7 +44,6 @@ export default {
             }
         },
     },
-
     mounted(){
         this.getPokemon()
         this.getImgType()

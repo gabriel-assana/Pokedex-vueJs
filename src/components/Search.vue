@@ -4,28 +4,27 @@
         class="search" 
         type="text" 
         placeholder="Digito o nome do pokemon ?" 
-        v-model="search"
+        v-model="namePokemon"
         >
-      <button type="submit" class="searchButton">
+      <button type="submit" class="searchButton" @click="emitSearchValue">
         <font-awesone-icon icon="search"/>
      </button>
   </div>     
 </template>
 
 <script>
-/* 
-import { EventBus } from '../event-bus.js'
- */
 
 export default {
 name: "Search",
     data(){
       return{
-         search:"",
+         namePokemon:"",
       }
     },
     methods:{
-        
+      emitSearchValue(){
+        console.log(this.namePokemon)
+      },
     }
 }
 </script>

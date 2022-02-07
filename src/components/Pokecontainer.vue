@@ -1,20 +1,25 @@
 <template>
     <div class="sessaoPoke">
+        <Header/>
         <Search/>
-        <Card/>    
+        <Card/>  
+        <Footer/>  
     </div>
 </template>
     
 <script>
-
+import Header from './Header.vue'
 import Card from './Card.vue'
 import Search from './Search.vue'
+import Footer from './Footer.vue'
 
 export default {
     name: 'Pokecontainer',
     components:{
+        Header,
         Card,
-        Search
+        Search,
+        Footer
     }
 }
 </script>
