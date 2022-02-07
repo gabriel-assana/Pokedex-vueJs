@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div class="container-search">
     <input 
         class="search" 
         type="text" 
-        placeholder="Digito o nome do pokemon ?" 
+        placeholder="Buscar Pokemon..." 
         v-model="namePokemon"
         >
-      <button type="submit" class="searchButton" @click="emitSearchValue">
+      <button type="submit" class="searchButton" @click="getSearch">
         <font-awesone-icon icon="search"/>
      </button>
   </div>     
@@ -22,7 +22,7 @@ name: "Search",
       }
     },
     methods:{
-      emitSearchValue(){
+      getSearch(){
         console.log(this.namePokemon)
       },
     }
@@ -31,9 +31,11 @@ name: "Search",
 
 <style scoped>
 
-div{
+.container-search{
   display:flex;
   margin-top: 1rem;
+  flex-direction: row;
+  flex-wrap: nowrap 
 }
 
 .search{
@@ -43,24 +45,30 @@ div{
   width: 20rem;
   height: 2rem;
   border: 3px solid #FF494C;
-  border-radius: 5px ;
+  border-radius: 5px;
   outline: none;
   color: rgb(29, 29, 29);
   text-align: center
 }
 
 .search:focus{
-  color: #FF494C;
+  color: black;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .searchButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 2rem;
   height: 2rem;
-  border: 3px solid #FF494C;
-  background: #FF494C;
+  margin-left: 0.2rem;
+  border: 3px solid #fc1519;
+  background: #fc1519;
   text-align: center;
   color: #fff;
-  border-radius: 0 5px 5px 0;
+  border-radius:5px;
   cursor: pointer;
   font-size: 20px;
 }

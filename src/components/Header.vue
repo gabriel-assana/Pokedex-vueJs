@@ -1,13 +1,20 @@
 <template>
   <div class="header">
-    <img src="../assets/img/biggestBlueLed.svg" class="blue-led"> 
-    
+      <img src="../assets/img/biggestBlueLed.svg" class="blue-led" alt="blue-led"> 
+      <div class="circulos">
+        <img src="../assets/img/circulo-red.png"    class="circle-red" alt="circle-red">
+        <img src="../assets/img/circulo-yellow.png" class="circle-yellow" alt="circle-yellow">
+        <img src="../assets/img/circulo-green.png"  class="circle-green" alt="circle-green">
+      </div>  
   </div>
 </template>
 
 <script>
 export default {
   name: 'Header',
+  props:{
+    circleBlue : String
+  }
 }
 </script>
 
@@ -28,5 +35,26 @@ export default {
   margin-left: 15px
 
 }
+
+.circulos{
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.circle-red {
+  width: 1rem;
+  margin-left: 1rem;
+}
+
+.circle-yellow {
+  width: 1rem;
+  margin-left: 0.2rem;
+}
+
+.circle-green {
+  width: 1.5rem;
+}
+
 </style>
 

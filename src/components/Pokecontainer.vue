@@ -1,6 +1,6 @@
 <template>
     <div class="sessaoPoke">
-        <Header/>
+        <Header :circleBlue="circleBlue"/>
         <Search/>
         <Card/>  
         <Footer/>  
@@ -15,6 +15,11 @@ import Footer from './Footer.vue'
 
 export default {
     name: 'Pokecontainer',
+    data(){
+        return {
+          circleBlue:'../assets/img/biggestBlueLed.svg'
+        }
+    },
     components:{
         Header,
         Card,
@@ -23,7 +28,6 @@ export default {
     }
 }
 </script>
-
 
 <style scoped>
 
@@ -35,6 +39,7 @@ export default {
     justify-content: center;
     margin: 0 auto;
     max-width: 1200px;
+    border: 1rem solid #FF494C
 }
 
 
