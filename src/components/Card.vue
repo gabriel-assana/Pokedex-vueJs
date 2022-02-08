@@ -1,7 +1,18 @@
 <template>
+  <div class="container-search">
+    <input 
+        class="search" 
+        type="text" 
+        placeholder="Buscar Pokemon..." 
+        v-model="namePokemon"
+        >
+      <button type="submit" class="searchButton" @click="$emit(this.namePokemon)">
+        <font-awesone-icon icon="search"/>
+     </button>
+  </div> 
    <div class="poke-container">  
         <ul class="pokedex">
-            <li class="pokemon" v-for=" (pokemon, index) in pokemons" :key="index">
+            <li class="pokemon" v-for=" (pokemon, index) in PokemonFilter" :key="index">
             <img class="img-pokemon" :src="imagePoke[index]" :alt="pokemon.name">
                 <h2 class="pokeName"> {{ pokemon.name }} </h2>
                 <h3 class="pokeType"> {{ types[index] }} </h3>
@@ -22,6 +33,7 @@ export default {
             imagePoke: [],
             pokemons:[],
             types:[],
+            namePokemon:""
         }
     },
     methods:{
@@ -47,6 +59,18 @@ export default {
     mounted(){
         this.getPokemon()
         this.getImgType()
+    },
+    computed:{
+       PokemonFilter(){
+            let opPokemon = [];
+
+            opPokemon = this.pokemons.filter((pokemon) => {
+                return(
+                    pokemon.name.toLowerCase().indexOf(this.namePokemon.toLowerCase()) > - 1
+               );   
+            });
+            return opPokemon
+        }
     }
 }
 </script>

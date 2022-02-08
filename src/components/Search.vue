@@ -6,7 +6,7 @@
         placeholder="Buscar Pokemon..." 
         v-model="namePokemon"
         >
-      <button type="submit" class="searchButton" @click="getSearch">
+      <button type="submit" class="searchButton" @click="$emit(this.namePokemon)">
         <font-awesone-icon icon="search"/>
      </button>
   </div>     
@@ -16,6 +16,8 @@
 
 export default {
 name: "Search",
+emits:[ 'namePokemon']
+,
     data(){
       return{
          namePokemon:"",

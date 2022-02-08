@@ -1,7 +1,6 @@
 <template>
     <div class="sessaoPoke">
-        <Header :circleBlue="circleBlue"/>
-        <Search/>
+        <Header/>
         <Card/>  
         <Footer/>  
     </div>
@@ -10,22 +9,15 @@
 <script>
 import Header from './Header.vue'
 import Card from './Card.vue'
-import Search from './Search.vue'
 import Footer from './Footer.vue'
 
 export default {
     name: 'Pokecontainer',
-    data(){
-        return {
-          circleBlue:'../assets/img/biggestBlueLed.svg'
-        }
-    },
     components:{
         Header,
         Card,
-        Search,
         Footer
-    }
+    },
 }
 </script>
 
