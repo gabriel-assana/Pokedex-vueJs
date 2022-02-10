@@ -6,13 +6,10 @@
         placeholder="Buscar Pokemon..." 
         v-model="namePokemon"
         >
-      <button type="submit" class="searchButton" @click="$emit(this.namePokemon)">
-        <font-awesone-icon icon="search"/>
-     </button>
   </div> 
    <div class="poke-container">  
         <ul class="pokedex">
-            <li class="pokemon" v-for=" (pokemon, index) in PokemonFilter" :key="index">
+            <li class="pokemon" v-for=" (pokemon, index) in PokemonFilter" :key="pokemon.id">
             <img class="img-pokemon" :src="imagePoke[index]" :alt="pokemon.name">
                 <h2 class="pokeName"> {{ pokemon.name }} </h2>
                 <h3 class="pokeType"> {{ types[index] }} </h3>
@@ -44,6 +41,7 @@ export default {
                 .catch(error => console.log(error))
         },
         async getImgType(){
+ 
             for (let index = 1; index <= 151; index++) {
                             
             await axios.get(`https://pokeapi.co/api/v2/pokemon/${index}`)
@@ -67,9 +65,11 @@ export default {
             opPokemon = this.pokemons.filter((pokemon) => {
                 return(
                     pokemon.name.toLowerCase().indexOf(this.namePokemon.toLowerCase()) > - 1
-               );   
+                );   
             });
+            console.log(this.pokemons[0])                    
             return opPokemon
+            
         }
     }
 }
@@ -128,6 +128,48 @@ export default {
     border-radius: 10px;
     font-size: 0.8em;
     padding: 5px 10px;
+}
+
+.container-search{
+  display:flex;
+  margin-top: 1rem;
+  flex-direction: row;
+  flex-wrap: nowrap 
+}
+
+.search{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20rem;
+  height: 2rem;
+  border: 3px solid #FF494C;
+  border-radius: 5px;
+  outline: none;
+  color: rgb(29, 29, 29);
+  text-align: center
+}
+
+.search:focus{
+  color: black;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.searchButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin-left: 0.2rem;
+  border: 3px solid #fc1519;
+  background: #fc1519;
+  text-align: center;
+  color: #fff;
+  border-radius:5px;
+  cursor: pointer;
+  font-size: 20px;
 }
 
 </style>

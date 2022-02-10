@@ -5,8 +5,10 @@
         <img src="../assets/img/circulo-red.png"    class="circle-red" alt="circle-red">
         <img src="../assets/img/circulo-yellow.png" class="circle-yellow" alt="circle-yellow">
         <img src="../assets/img/circulo-green.png"  class="circle-green" alt="circle-green">
-      </div>  
+      </div>   
+        <img src="../assets/img/pokemon.svg" alt="logo-pokemon" class="logo-pokemon">    
   </div>
+
 </template>
 
 <script>
@@ -54,6 +56,19 @@ export default {
 
 .circle-green {
   width: 1.5rem;
+}
+.div-image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-pokemon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow:1;
+  padding-right: 10rem;
 }
 
 </style>
