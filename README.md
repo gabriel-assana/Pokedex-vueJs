@@ -12,6 +12,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Vue.js]()
 - [Axios - API]() - https://pokeapi.co/
 
+📋 link do Site: https://pokedex-vue-js.netlify.app/
 
 👋🏽 Entre em contato!
 [![Linkedin](https://img.shields.io/badge/-GabrielAssana-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/gabriel-vieira-assana-62405414a/)](https://www.linkedin.com/in/gabriel-vieira-assana-62405414a/)
