@@ -9,7 +9,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [HTML]()
 - [CSS]()
 - [JavaScript]()
-- [API]()
+- [Vue.js]()
+- [Axios - API]() - https://pokeapi.co/
 
 
 👋🏽 Entre em contato!
