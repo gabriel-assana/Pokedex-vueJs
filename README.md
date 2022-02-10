@@ -1,6 +1,6 @@
 # pokedex
 <h1 align="center">
-  <img src="src/assets/images/pokemon.svg" height="200px" alt="Vagas Tech"/>
+  <img src="src/assets/img/pokemon.svg" height="200px" alt="Pokemon"/>
 </h1>
 
 
