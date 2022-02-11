@@ -69,6 +69,7 @@ export default {
   align-items: center;
   flex-grow:1;
   padding-right: 10rem;
+  width: 15%;
 }
 
 </style>

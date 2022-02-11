@@ -1,21 +1,28 @@
 <template>
-  <div class="container-search">
-    <input 
-        class="search" 
-        type="text" 
-        placeholder="Buscar Pokemon..." 
-        v-model="namePokemon"
-        >
-  </div> 
-   <div class="poke-container">  
-        <ul class="pokedex">
-            <li class="pokemon" v-for=" (pokemon, index) in PokemonFilter" :key="pokemon.id">
-            <img class="img-pokemon" :src="imagePoke[index]" :alt="pokemon.name">
-                <h2 class="pokeName"> {{ pokemon.name }} </h2>
-                <h3 class="pokeType"> {{ types[index] }} </h3>
-            </li>
-        </ul>
-    </div>    
+<div class="container-pokemon">
+    <div class="container-search">
+        <input 
+            class="search" 
+            type="text" 
+            placeholder="Buscar Pokemon..." 
+            v-model="namePokemon"
+            >
+    </div> 
+    <div class="poke-container">  
+            <ul class="pokedex">
+                <li class="pokemon" v-for=" pokemon in PokemonFilter" :key="pokemon.id">
+                    <img class="img-pokemon" 
+                        :src="pokemon.sprites.other.dream_world.front_default" 
+                        :alt="pokemon.name"
+                    >
+                    <h2 class="pokeName"> {{ pokemon.name }} </h2>
+                    <h3 class="pokeType"> 
+                        {{ pokemon.types.map((typeInfo) => typeInfo.type.name).join(" | ") }} 
+                    </h3>
+                </li>
+            </ul>
+        </div>
+    </div>         
 </template>
 
 <script>
@@ -27,32 +34,22 @@ export default {
     data(){
         return{
             url: "https://pokeapi.co/api/v2/pokemon?offset=0&limit=151%22",
-            imagePoke: [],
             pokemons:[],
-            types:[],
             namePokemon:""
         }
     },
     methods:{
 
     async getPokemon() {
-        await axios.get(this.url)
-                .then(({data}) => this.pokemons = data.results)      
-                .catch(error => console.log(error))
-        },
-        async getImgType(){
- 
-            for (let index = 1; index <= 151; index++) {
-                            
+        for (let index = 1; index <= 151; index++){
             await axios.get(`https://pokeapi.co/api/v2/pokemon/${index}`)
-                    .then(resp =>{
-                        this.imagePoke.push(resp.data.sprites.other.dream_world.front_default)
-                        this.types.push(resp.data.types.map(typeInfo => typeInfo.type.name).join( " | "))
-                    /*typeInfo, representa cada Obj do Array types, assim deixando ser acessado cada Obj do array  */ 
-                    })
-                    .catch(error => console.log(error))
-            }
-        },
+                        .then(({data}) => {
+                            this.pokemons.push(data)
+                        })
+                        .catch(error => console.log(error))
+        }
+    },
+
     },
     mounted(){
         this.getPokemon()
@@ -67,10 +64,10 @@ export default {
                     pokemon.name.toLowerCase().indexOf(this.namePokemon.toLowerCase()) > - 1
                 );   
             });
-            console.log(this.pokemons[0])                    
+                 
             return opPokemon
             
-        }
+        } 
     }
 }
 </script>
@@ -132,6 +129,8 @@ export default {
 
 .container-search{
   display:flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 1rem;
   flex-direction: row;
   flex-wrap: nowrap 
