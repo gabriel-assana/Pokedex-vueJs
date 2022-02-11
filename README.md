@@ -1,24 +1,21 @@
 # pokedex
+<h1 align="center">
+  <img src="src/assets/img/pokemon.svg" height="200px" alt="Pokemon"/>
+</h1>
 
-## Project setup
-```
-npm install
-```
+## 💻 Tecnologias utilizadas
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+- [HTML]()
+- [CSS]()
+- [JavaScript]()
+- [Vue.js]()
+- [Axios - API]() - https://pokeapi.co/
 
-### Compiles and minifies for production
-```
-npm run build
-```
+📋 link do Site: https://pokedex-vue-js.netlify.app/
 
-### Lints and fixes files
-```
-npm run lint
-```
+👋🏽 Entre em contato!
+[![Linkedin](https://img.shields.io/badge/-GabrielAssana-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/gabriel-vieira-assana-62405414a/)](https://www.linkedin.com/in/gabriel-vieira-assana-62405414a/)
+[![Gmail Badge](https://img.shields.io/badge/-gabrielhhz2@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:tgmarinho@gmail.com)](mailto:gabrielhhz2@gmail.com)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 📈 Status do projeto
+👨🏻‍💻 Em processo de finalização
