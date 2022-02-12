@@ -8,21 +8,23 @@
             v-model="namePokemon"
             >
     </div> 
-    <div class="poke-container">  
-            <ul class="pokedex">
-                <li class="pokemon" v-for=" pokemon in PokemonFilter" :key="pokemon.id">
-                    <img class="img-pokemon" 
-                        :src="pokemon.sprites.other.dream_world.front_default" 
-                        :alt="pokemon.name"
-                    >
-                    <h2 class="pokeName"> {{ pokemon.name }} </h2>
-                    <h3 class="pokeType"> 
-                        {{ pokemon.types.map((typeInfo) => typeInfo.type.name).join(" | ") }} 
-                    </h3>
-                </li>
-            </ul>
-        </div>
-    </div>         
+    <div class="container-pokedex">  
+        <article class="pokemon" v-for=" pokemon in PokemonFilter" :key="pokemon.id">
+            <figure>
+                <img class="img-pokemon" 
+                    :src="pokemon.sprites.other.dream_world.front_default" 
+                    :alt="pokemon.name"
+                >
+            </figure>
+            <section>
+                <h2 class="pokeName"> {{ pokemon.name }} </h2>
+                <h3 class="pokeType"> 
+                    {{ pokemon.types.map((typeInfo) => typeInfo.type.name).join(" | ") }} 
+                </h3>
+            </section> 
+        </article>
+    </div>
+</div>         
 </template>
 
 <script>
@@ -74,19 +76,13 @@ export default {
 
 <style scoped>
 
-.poke-container{
+.container-pokedex{
     display: flex;
     flex-wrap: wrap;
     align-items: space-between;
     justify-content: center;
     margin: 0 auto;
-}
-
-.pokedex {
-    display: flex;
-    flex-wrap: wrap;
     text-align: center;
-    justify-content: center;
 }
 
 .pokemon{
